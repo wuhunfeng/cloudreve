@@ -6,9 +6,9 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update && apt-get install -y aria2
 WORKDIR /app
 
-RUN wget https://github.com/cloudreve/Cloudreve/files/14327249/cloudreveplus-linux-amd64v2.zip \
-    && unzip cloudreveplus-linux-amd64v2.zip \
-    && rm cloudreveplus-linux-amd64v2.zip
+RUN wget https://github.com/cloudreve/cloudreve/releases/download/4.10.1/cloudreve_4.10.1_linux_amd64.tar.gz \
+    && unzip cloudreve_4.10.1_linux_amd64.tar.gz \
+    && rm cloudreve_4.10.1_linux_amd64.tar.gz
 
 RUN chmod 777 /app
 COPY aria2.conf /app/aria2.conf
@@ -19,7 +19,7 @@ ARG SLAVE_SECRET
 # 用 sed 替换配置文件中的占位符
 RUN sed -i "s|TEMP_SLAVE_SECRET|${SLAVE_SECRET}|g" /app/conf.ini
 
-RUN chmod +x ./cloudreveplus-linux-amd64v2
+RUN chmod +x ./cloudreve
 
 RUN mkdir -p /aria2/data
 
