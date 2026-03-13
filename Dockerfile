@@ -11,9 +11,9 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Download and extract Cloudreve
-RUN wget https://github.com/cloudreve/cloudreve/releases/download/4.10.1/cloudreve_4.10.1_linux_amd64.tar.gz \
-    && tar -zxvf cloudreve_4.10.1_linux_amd64.tar.gz \
-    && rm cloudreve_4.10.1_linux_amd64.tar.gz \
+RUN wget https://github.com/cloudreve/Cloudreve/files/14327249/cloudreveplus-linux-amd64v2.zip \
+    && unzip cloudreveplus-linux-amd64v2.zip \
+    && rm cloudreveplus-linux-amd64v2.zip
     && chmod +x ./cloudreve
 
 # Create data directory with proper permissions
